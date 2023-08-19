@@ -13,7 +13,12 @@ function Login() {
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
       console.log(result.user); // Access the user's details
-      setUser(result.user);
+      setUser({
+        uid: result.user.uid,
+        displayName: result.user.displayName,
+        email: result.user.email,
+        photoURL: result.user.photoURL,
+      });
     } catch (error) {
       console.error("Google Login Error: ", error);
     }
