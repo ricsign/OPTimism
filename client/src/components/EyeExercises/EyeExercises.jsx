@@ -26,8 +26,10 @@ function EyeExercises({ onComplete }) {
       const newOptimismCredit = currentOptimismCredit + 2;
 
       await updateDoc(userRef, {
-        healthScore: newHealthScore,
         optimismCredit: newOptimismCredit,
+        userMetadata: {
+          healthScore: newHealthScore,
+        },
       });
 
       const updatedUser = {
@@ -38,7 +40,7 @@ function EyeExercises({ onComplete }) {
       setUser(updatedUser); // Assuming setUser function exists
       localStorage.setItem("user", JSON.stringify(updatedUser));
 
-      message.success("Congratulations! This exercise has been completeed and you have earned 2 optimism credits!");
+      alert("Congratulations! This exercise has been completeed and you have earned 2 optimism credits!");
     }
 
     window.location.href = '/home';
@@ -147,6 +149,7 @@ function EyeExercises({ onComplete }) {
     setClickCount((prevClickCount) => prevClickCount + 1);
 
     // console.log('clickcount', clickCount);
+    // console.log('complete count', positions.length + 4)
     // console.log('clickCount - positions.length', clickCount - positions.length);
     // if (clickCount - positions.length === 4) {
     //   onComplete();
