@@ -13,6 +13,7 @@ import BubbleBtn from "./components/BubbleBtn/BubbleBtn";
 import EyeBall from "./components/EyeBall/EyeBall";
 import Login from "./components/Login/Login";
 import Leaderboard from "./components/Leaderboard/Leaderboard";
+import DonationForm from "./components/DonationPage/DonationPage";
 
 import LoggedRoute from "./routes/LoggedRoute";
 import PublicRoute from "./routes/PublicRoute";
@@ -45,6 +46,10 @@ function App() {
           <Route
             path="/eye-exercises"
             element={<LoggedRoute component={EyeExercises} />}
+          />
+          <Route
+            path="/donation"
+            element={<LoggedRoute component={DonationForm} />}
           />
 
           <Route

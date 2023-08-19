@@ -1,0 +1,11 @@
+.DonateButton {
+  margin-top: 3rem;
+  padding: 1rem 2rem;
+  background: var(--dark-blue);
+  color: var(--white);
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
