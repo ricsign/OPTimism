@@ -57,11 +57,11 @@ const Analytics = () => {
               </h1>
             </Space>
             <div className="flex align-items-center">
-              <span className="text-xl text-gray-500 block mr-10">
+              <span className="text-xl text-gray-500 block mr-6">
                 {currentUserData?.email}
               </span>
               <HomeOutlined
-                className="text-xl text-gray-800 font-extrabold hover:scale-150 transition-transform duration-300"
+                className="text-2xl text-gray-800 font-extrabold hover:scale-150 transition-transform duration-300 translate-y-[-3px]"
                 onClick={() => (window.location.href = "/home")}
               />
             </div>
@@ -74,7 +74,7 @@ const Analytics = () => {
               <Card hoverable className="text-center">
                 <Statistic
                   title="Health Score"
-                  value={currentUserData?.healthScore}
+                  value={currentUserData?.userMetadata?.healthScore || 50}
                   prefix={
                     <HeartTwoTone
                       twoToneColor={
@@ -105,7 +105,7 @@ const Analytics = () => {
               <Card hoverable className="text-center">
                 <Statistic
                   title="Distance from Screen"
-                  value={currentUserData?.averageDistance}
+                  value={currentUserData?.averageDistance || 34}
                   suffix="cm"
                   prefix={<EyeTwoTone className="mr-3 translate-y-[-4.5px]" />}
                   valueStyle={{ fontSize: "24px" }}
@@ -116,7 +116,7 @@ const Analytics = () => {
               <Card hoverable className="text-center">
                 <Statistic
                   title="Posture Warnings"
-                  value={currentUserData?.postureWarnings}
+                  value={currentUserData?.postureWarnings || 0}
                   prefix={
                     <WarningTwoTone
                       twoToneColor="#F87171"
@@ -133,7 +133,7 @@ const Analytics = () => {
 
           <Card className="text-center mt-6">
             <Statistic
-              title="Taipy"
+              title="Statistics"
               value="TBA"
               valueStyle={{ fontSize: "24px" }}
               tooltip={{ title: "This feature will be implemented soon." }}
