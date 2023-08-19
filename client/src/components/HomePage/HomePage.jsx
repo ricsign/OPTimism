@@ -19,7 +19,7 @@ const HomePage = () => {
           <p className="website_name">OPTimism</p>
           <div className="menu_links">
             <a href="/analytics" className="link">
-              Analytics
+              My OPTimism
             </a>
             <a href="/leaderboard" className="link">
               Leaderboard

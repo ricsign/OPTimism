@@ -60,7 +60,6 @@ const Leaderboard = () => {
       // defaultSortOrder: "descend", // default sorting order
       align: "center",
     },
-    // the top 3 users will have a crown icon and credit reward
     {
       title: "Today's Rewards",
       dataIndex: "id",
