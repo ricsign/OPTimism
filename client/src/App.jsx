@@ -71,32 +71,6 @@ function App() {
           />
         </Routes>
       </Router>
-
-      <nav>
-        <div className="menu">
-          <p className="website_name">OPTimism</p>
-          <div className="menu_links">
-            <a href="/analytics" className="link">
-              Analytics
-            </a>
-            <a href="/leaderboard" className="link">
-              Leaderboard
-            </a>
-            <a href="/redeem" className="link">
-              Rewards
-            </a>
-            <a href="/dontate" className="link">
-              Donate
-            </a>
-            <a href="/logout" className="link">
-              Log Out
-            </a>
-          </div>
-          <div className="menu_icon" id="menuIcon">
-            <span className="icon"></span>
-          </div>
-        </div>
-      </nav>
     </UserProvider>
   );
 }
