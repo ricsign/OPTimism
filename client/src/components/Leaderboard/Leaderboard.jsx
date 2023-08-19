@@ -40,7 +40,6 @@ const Leaderboard = () => {
           <span>{record.displayName}</span>
         </div>
       ),
-      sorter: (a, b) => a.name.localeCompare(b.name),
       align: "center",
     },
     {
