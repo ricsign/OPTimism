@@ -25,7 +25,7 @@ const Leaderboard = () => {
         userList
           .map((user) => ({
             ...user,
-            healthScore: user.userMetadata?.healthScore || 0,
+            healthScore: user.userMetadata?.healthScore || 50,
           }))
           .sort((a, b) => b.healthScore - a.healthScore) // Sort by healthScore in descending order
       );

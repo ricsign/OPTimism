@@ -1,23 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { db } from "../../utils/firebaseConfig";
+import { message } from "antd";
 import EyeBall from "../EyeBall/EyeBall";
 import "./EyeExercises.css";
 
+import UserContext from "../../context/userContext";
+
 // eslint-disable-next-line react/prop-types
 function EyeExercises({ onComplete }) {
+  const { user, setUser } = useContext(UserContext);
 
-
-  const handleComplete = () => {
+  const handleComplete = async () => {
     if (onComplete) {
       onComplete();
     } else {
-      // hard coded for now
-      
-      
+      const userRef = doc(db, "users", user.uid);
+      const userData = await getDoc(userRef);
+      const currentHealthScore = userData.data().healthScore || 50;
+      const currentOptimismCredit = userData.data().optimismCredit || 0;
+
+      let newHealthScore = currentHealthScore + Math.floor(0.1 * (100 - currentHealthScore));
+      if (newHealthScore > 100) newHealthScore = 100;
+
+      const newOptimismCredit = currentOptimismCredit + 2;
+
+      await updateDoc(userRef, {
+        healthScore: newHealthScore,
+        optimismCredit: newOptimismCredit,
+      });
+
+      const updatedUser = {
+        ...user,
+        healthScore: newHealthScore,
+        optimismCredit: newOptimismCredit,
+      };
+      setUser(updatedUser); // Assuming setUser function exists
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+
+      message.success("Congratulations! This exercise has been completeed and you have earned 2 optimism credits!");
     }
 
     window.location.href = '/home';
-    
-    // history.push(location.state.prevPath);
   };
 
 
