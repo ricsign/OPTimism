@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Card, Modal, Button, Input, message, Row, Col } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
 import UserContext from "../../context/userContext";
 import { db } from "../../utils/firebaseConfig";
 import { doc, updateDoc } from "firebase/firestore";
@@ -87,7 +88,15 @@ const Redemption = () => {
   return (
     <div className="p-16 bg-gradient-to-br from-[#9575CD] to-[#64B5F6] min-h-screen">
       <div className="bg-white p-10 rounded-xl shadow-lg">
-        <h1 className="text-4xl text-gray-800 font-extrabold mb-10">Rewards</h1>
+      <div className="flex justify-between">
+          <h1 className="text-4xl text-gray-800 font-extrabold mb-10">
+            Rewards
+          </h1>
+          <HomeOutlined
+            className="text-xl text-gray-800 font-extrabold mb-10 hover:scale-150 transition-transform duration-300"
+            onClick={() => (window.location.href = "/home")}
+          />
+        </div>
 
         <Row gutter={32}>
           {products.map((product) => (

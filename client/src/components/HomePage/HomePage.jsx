@@ -1,77 +1,86 @@
-import React from 'react';
-import { Parallax } from 'react-parallax';
-import './HomePage.css';
+import React from "react";
+import { Parallax } from "react-parallax";
+import "./HomePage.css";
 
 const HomePage = () => {
-    const useState = React.useState;
-    const useEffect = React.useEffect;
+  const useState = React.useState;
+  const useEffect = React.useEffect;
 
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
-    
   return (
     <div className="parallax-page">
-
-    <nav>
-        <div class="menu">
-        <p class="website_name">OPTimism</p>
-            <div class="menu_links">
-                <a href="" class="link">Analytics</a>
-                <a href="" class="link">Leaderboard</a>
-                <a href="" class="link">Rewards</a>
-                <a href="" class="link">Donate</a>
-                <a href="" class="link">Log Out</a>
-            </div>
-            <div class="menu_icon" id="menuIcon">
-                <span class="icon"></span>
-            </div>
+      <nav>
+        <div className="menu">
+          <p className="website_name">OPTimism</p>
+          <div className="menu_links">
+            <a href="/analytics" className="link">
+              Analytics
+            </a>
+            <a href="/leaderboard" className="link">
+              Leaderboard
+            </a>
+            <a href="/redeem" className="link">
+              Rewards
+            </a>
+            <a href="/dontate" className="link">
+              Donate
+            </a>
+            <a href="/logout" className="link">
+              Log Out
+            </a>
+          </div>
+          <div className="menu_icon" id="menuIcon">
+            <span className="icon"></span>
+          </div>
         </div>
-    </nav>
-
-
+      </nav>
 
       <section className="wrapper">
         <div className="container">
-        <div id="scene" class="scene" data-hover-only="false">
+          <div id="scene" className="scene" data-hover-only="false">
+            <div className="circle" data-depth="1.2"></div>
 
+            <div className="one" data-depth="0.9">
+              <div className="content">
+                <span className="piece"></span>
+                <span className="piece"></span>
+                <span className="piece"></span>
+              </div>
+            </div>
 
-<div class="circle" data-depth="1.2"></div>
+            <div className="two" data-depth="0.60">
+              <div className="content">
+                <span className="piece"></span>
+                <span className="piece"></span>
+                <span className="piece"></span>
+              </div>
+            </div>
 
-<div class="one" data-depth="0.9">
-    <div class="content">
-        <span class="piece"></span>
-        <span class="piece"></span>
-        <span class="piece"></span>
-    </div>
-</div>
+            <div className="three" data-depth="0.40">
+              <div className="content">
+                <span className="piece"></span>
+                <span className="piece"></span>
+                <span className="piece"></span>
+              </div>
+            </div>
 
-<div class="two" data-depth="0.60">
-    <div class="content">
-        <span class="piece"></span>
-        <span class="piece"></span>
-        <span class="piece"></span>
-    </div>
-</div>
-
-<div class="three" data-depth="0.40">
-    <div class="content">
-        <span class="piece"></span>
-        <span class="piece"></span>
-        <span class="piece"></span>
-    </div>
-</div>
-
-<p class="p404" data-depth="0.50">OPTimism</p>
-<p class="p404" data-depth="0.10">OPTimism</p>
-
-</div>
+            <p className="p404" data-depth="0.50">
+              OPTimism
+            </p>
+            <p className="p404" data-depth="0.10">
+              OPTimism
+            </p>
+          </div>
           <div className="text">
             <article>
-              <p>Guarding Vision, <br /> One Frame at a Time </p>
+              <p>
+                Guarding Vision, <br /> One Frame at a Time{" "}
+              </p>
               <button>Start Eye Exercise</button>
             </article>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Table, Image, Tag } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../utils/firebaseConfig";
 
@@ -62,9 +63,15 @@ const Leaderboard = () => {
   return (
     <div className="p-16 bg-gradient-to-br from-[#D1C4E9] to-[#BBDEFB] min-h-screen">
       <div className="bg-white p-10 rounded-xl shadow-lg">
-        <h1 className="text-4xl text-gray-800 font-extrabold mb-10">
-          OPTimism Leaderboard
-        </h1>
+        <div className="flex justify-between">
+          <h1 className="text-4xl text-gray-800 font-extrabold mb-10">
+            OPTimism Leaderboard
+          </h1>
+          <HomeOutlined
+            className="text-xl text-gray-800 font-extrabold mb-10 hover:scale-150 transition-transform duration-300"
+            onClick={() => (window.location.href = "/home")}
+          />
+        </div>
         <Table
           dataSource={users}
           columns={columns}
