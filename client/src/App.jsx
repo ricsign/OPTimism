@@ -16,6 +16,7 @@ import Leaderboard from "./components/Leaderboard/Leaderboard";
 
 import LoggedRoute from "./routes/LoggedRoute";
 import PublicRoute from "./routes/PublicRoute";
+import Redemption from "./components/Redemption/Redemption";
 
 function App() {
   const { setUser } = useContext(UserContext);
@@ -49,6 +50,10 @@ function App() {
           <Route
             path="/leaderboard"
             element={<LoggedRoute component={Leaderboard} />}
+          />
+          <Route
+            path="/redeem"
+            element={<LoggedRoute component={Redemption} />}
           />
 
           <Route
