@@ -75,8 +75,8 @@ function EyeExercises({ onComplete }) {
         // Hide EyeBall component after 3 seconds
         setTimeout(() => {
           handleComplete();
-        }, 4000);
-      }, 2000); // waits 2 seconds to auto redirect back
+        }, 2000);
+      }, 3000); 
       return () => clearTimeout(timeout);
     }
   }, [clickCount]);

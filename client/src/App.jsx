@@ -49,6 +49,7 @@ function App() {
             element={<LoggedRoute component={Analytics} />}
           />
 
+{/* dev use only - /eye-ball */}
           <Route path="/eye-ball" element={<EyeBall />} />
           <Route
             path="/eye-exercises"
