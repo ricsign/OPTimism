@@ -94,7 +94,8 @@ function EyeExercises({ onComplete }) {
     width: "100vw",
     height: "100vh",
     top: 0,
-    backgroundColor: "black",
+    background: showEyeBall ? "linear-gradient(-45deg, #8691b3, #edeef3)" : "black",
+   
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
