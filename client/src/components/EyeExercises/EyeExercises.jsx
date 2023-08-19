@@ -11,6 +11,7 @@ function EyeExercises({ onComplete }) {
     "Now rotate your neck the other way (clockwise)",
     "Now look up and down",
     "Now close your eyes and count to 3",
+    "",
     "You've completed your eye exercises!",
   ]);
   const [showEyeBall, setShowEyeBall] = useState(false); // State to track EyeBall display
@@ -30,13 +31,17 @@ function EyeExercises({ onComplete }) {
 
   useEffect(() => {
     if (clickCount === 8) {
+     
       setShowEyeBall(true); // Show EyeBall component
       const timeout = setTimeout(() => {
-        setShowEyeBall(false); // Hide EyeBall component after 3 seconds
+        setShowEyeBall(false); 
+        setClickCount((prevClickCount) => prevClickCount + 1); // Increment clickCount
+        // Hide EyeBall component after 3 seconds
       }, 3000);
       return () => clearTimeout(timeout);
     }
   }, [clickCount]);
+
 
   
   const handleCircleClick = () => {
@@ -88,9 +93,10 @@ function EyeExercises({ onComplete }) {
   };
 
   return (
-    <div style={blackScreenStyles} onClick={handleBlackScreenClick}>
+    <div style={blackScreenStyles}>
       {!showCircle ? displayText : ""}
-      <p style={{ color: "white", fontSize: "24px" }}>{clickCount}</p>
+      {/* debug use only */}
+      {/* <p style={{ color: "white", fontSize: "24px" }}>{clickCount}</p> */}
 
       {clickCount >= 4 ? (
         <div style={{ textAlign: "center" }} onClick={handleBlackScreenClick}>
