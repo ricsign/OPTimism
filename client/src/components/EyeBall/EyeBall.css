@@ -18,6 +18,30 @@ body *, body *:before, body *:after {
 	left: 50%;
 } */
 
+.countdown-container {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	font-size: 44px;
+	color: red;
+	
+  }
+
+  .countdown {
+	position: absolute;
+	/* top: 50%;
+	left: 50%; */
+	transform: translate(-50%, -50%);
+	z-index: 9999; /* Place it on top */
+	font-size: 2rem;
+	font-weight: bold;
+	color: white;
+	/* background-color: rgba(0, 0, 0, 0.8); */
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+  
+
 .eye-container {
 	position: relative;
 	width: 100%;

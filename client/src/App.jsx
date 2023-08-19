@@ -3,6 +3,8 @@ import "./App.css";
 
 import HomePage from "./components/HomePage/HomePage";
 import EyeExercises from "./components/EyeExercises/EyeExercises";
+import BubbleBtn from './components/BubbleBtn/BubbleBtn';
+import EyeBall from './components/EyeBall/EyeBall';
 
 
 function App() {
@@ -10,9 +12,13 @@ function App() {
     <>
       <Router>
       <Routes>
+      <Route path="/button-test" element={<BubbleBtn />} /> 
+   
         <Route path="/" element={<HomePage />} />
+        <Route path="/eye-ball" element={<EyeBall />} />
         <Route path="/eye-exercises" element={<EyeExercises />} />
-      </Routes>
+         {/* delete later */}
+           </Routes>
     </Router>
     </>
   );

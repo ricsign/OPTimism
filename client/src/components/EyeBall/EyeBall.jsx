@@ -2,6 +2,21 @@ import React from 'react'
 import './EyeBall.css?ra'
 
 function EyeBall() {
+  const { useState } = React;
+  const { useEffect } = React;
+
+  const [countdown, setCountdown] = useState(3);
+
+   useEffect(() => {
+    if (countdown > 0) {
+      const timer = setInterval(() => {
+        setCountdown(prevCountdown => prevCountdown - 1);
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [countdown]);
+
     const eyeStyles = {
     
         // width: "100%",
@@ -18,6 +33,12 @@ function EyeBall() {
         <div className="eye-container">
         <div className="background"></div>
         
+        <div className="countdown-container">
+        {countdown > 0 && (
+          <div className="countdown">{countdown}</div>
+        )}
+      </div>
+
           {/* <div className="eye" style={eyeStyles}></div> */}
           <div className="eye"></div>
     

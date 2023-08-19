@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import EyeBall from "../EyeBall/EyeBall"
 
 function EyeExercises({ onComplete }) {
   const [displayText, setDisplayText] = useState("3");
@@ -9,16 +10,15 @@ function EyeExercises({ onComplete }) {
     "Now rotate your neck counterclockwise",
     "Now rotate your neck the other way (clockwise)",
     "Now look up and down",
-    "Now look left and right",
+    "Now close your eyes and count to 3",
     "You've completed your eye exercises!",
   ]);
+  const [showEyeBall, setShowEyeBall] = useState(false); // State to track EyeBall display
 
-
-
+ 
   useEffect(() => {
     if (displayText === "0") {
       setShowCircle(true);
-   
     } else {
       const timeout = setTimeout(() => {
         setDisplayText((prevText) => (parseInt(prevText) - 1).toString());
@@ -28,23 +28,31 @@ function EyeExercises({ onComplete }) {
     }
   }, [displayText]);
 
-  const handleCircleClick = () => {
-    
-   if (showCircle) {
-      setClickCount((prevClickCount) => prevClickCount + 1); // Increment clickCount
+  useEffect(() => {
+    if (clickCount === 8) {
+      setShowEyeBall(true); // Show EyeBall component
+      const timeout = setTimeout(() => {
+        setShowEyeBall(false); // Hide EyeBall component after 3 seconds
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [clickCount]);
+
   
+  const handleCircleClick = () => {
+    if (showCircle) {
+      setClickCount((prevClickCount) => prevClickCount + 1); // Increment clickCount
+
       const positions = [
         { top: "0", left: "0" }, // Top-left
         { top: "calc(100vh - 50px)", left: "calc(100vw - 50px)" }, // Bottom-right
         { top: "0", left: "calc(100vw - 50px)" }, // Top-right
         { top: "calc(100vh - 50px)", left: "0" }, // Bottom-left
       ];
-  
+
       const newPosition = positions[(clickCount + 1) % positions.length];
       setCirclePosition(newPosition); // Update circlePosition
     }
-
-    
   };
 
   const blackScreenStyles = {
@@ -72,8 +80,6 @@ function EyeExercises({ onComplete }) {
   };
 
   const handleBlackScreenClick = () => {
-   
-   
     setClickCount((prevClickCount) => prevClickCount + 1);
 
     if (clickCount === 9) {
@@ -82,15 +88,19 @@ function EyeExercises({ onComplete }) {
   };
 
   return (
-    <div style={blackScreenStyles} onClick={handleBlackScreenClick} >
+    <div style={blackScreenStyles} onClick={handleBlackScreenClick}>
       {!showCircle ? displayText : ""}
-      <p style={{ color: 'white', fontSize: '24px' }}>{clickCount}</p>
+      <p style={{ color: "white", fontSize: "24px" }}>{clickCount}</p>
 
       {clickCount >= 4 ? (
-        <div style={{ textAlign: "center" }} >
-          <p style={{ color: "white", fontSize: "24px" }}>
-            {textOptions[clickCount - 4]}
-          </p>
+        <div style={{ textAlign: "center" }} onClick={handleBlackScreenClick}>
+          {showEyeBall ? (
+            <EyeBall /> // Display EyeBall component when showEyeBall is true
+          ) : (
+            <p style={{ color: "white", fontSize: "24px" }}>
+              {textOptions[clickCount - 4]}
+            </p>
+          )}
         </div>
       ) : showCircle ? (
         <div style={whiteCircleStyles} onClick={handleCircleClick}></div>
