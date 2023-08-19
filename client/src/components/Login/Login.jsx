@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GoogleOutlined } from "@ant-design/icons";
 import "tailwindcss/tailwind.css";
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from "firebase/auth";
 import { auth, googleAuthProvider } from "../../utils/firebaseConfig";
 
+import UserContext from "../../context/userContext";
+
 function Login() {
+  const { user, setUser } = useContext(UserContext);
+
   const handleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
       console.log(result.user); // Access the user's details
+      setUser(result.user);
     } catch (error) {
       console.error("Google Login Error: ", error);
     }
