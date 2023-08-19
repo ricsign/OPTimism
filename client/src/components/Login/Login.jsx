@@ -31,9 +31,9 @@ function Login() {
       } else {
         // If user doesn't exist, set default values for additional fields
         const defaultData = {
-          optimismCredit: "0",
+          optimismCredit: "10",
           userMetadata: {
-            healthScore: "0",
+            healthScore: "50",
           }
         };
 
