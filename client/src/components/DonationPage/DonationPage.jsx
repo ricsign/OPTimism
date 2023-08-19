@@ -42,6 +42,7 @@ function DonationPage() {
 
   return (
 <div className="donation-wrapper">
+{/* dev debug use to check for api response */}
 {/* {apiResponse && (
         JSON.stringify(apiResponse, null, 2)
       )} */}
