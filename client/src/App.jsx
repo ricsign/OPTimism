@@ -10,6 +10,8 @@ import UserContext from "./context/userContext";
 import HomePage from "./components/HomePage/HomePage";
 import EyeExercises from "./components/EyeExercises/EyeExercises";
 import Login from "./components/Login/Login";
+import Leaderboard from "./components/Leaderboard/Leaderboard";
+
 import LoggedRoute from "./routes/LoggedRoute";
 import PublicRoute from "./routes/PublicRoute";
 
@@ -36,6 +38,10 @@ function App() {
           <Route
             path="/eye-exercises"
             element={<LoggedRoute component={EyeExercises} />}
+          />
+          <Route
+            path="/leaderboard"
+            element={<LoggedRoute component={Leaderboard} />}
           />
 
 
