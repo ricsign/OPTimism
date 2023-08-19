@@ -4,6 +4,23 @@ import "./EyeExercises.css";
 
 // eslint-disable-next-line react/prop-types
 function EyeExercises({ onComplete }) {
+
+
+  const handleComplete = () => {
+    if (onComplete) {
+      onComplete();
+    } else {
+      // hard coded for now
+      
+      
+    }
+
+    window.location.href = '/home';
+    
+    // history.push(location.state.prevPath);
+  };
+
+
   const positions = [
     { top: "30px", left: "30px" }, // Top-left
     {
@@ -56,7 +73,10 @@ function EyeExercises({ onComplete }) {
         setShowEyeBall(false);
         setClickCount((prevClickCount) => prevClickCount + 1); // Increment clickCount
         // Hide EyeBall component after 3 seconds
-      }, 3000);
+        setTimeout(() => {
+          handleComplete();
+        }, 4000);
+      }, 2000); // waits 2 seconds to auto redirect back
       return () => clearTimeout(timeout);
     }
   }, [clickCount]);
@@ -102,9 +122,12 @@ function EyeExercises({ onComplete }) {
   const handleBlackScreenClick = () => {
     setClickCount((prevClickCount) => prevClickCount + 1);
 
-    if (clickCount === positions.length + 4) {
-      onComplete();
-    }
+    // console.log('clickcount', clickCount);
+    // console.log('clickCount - positions.length', clickCount - positions.length);
+    // if (clickCount - positions.length === 4) {
+    //   onComplete();
+     
+    // }
   };
 
   return (
