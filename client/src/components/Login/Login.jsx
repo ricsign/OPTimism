@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { GoogleOutlined } from "@ant-design/icons";
 import "tailwindcss/tailwind.css";
 import { signInWithPopup } from "firebase/auth";
-import { auth, googleAuthProvider } from "../../utils/firebaseConfig";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { auth, googleAuthProvider, db } from "../../utils/firebaseConfig";
 
 import UserContext from "../../context/userContext";
 
@@ -12,13 +13,31 @@ function Login() {
   const handleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
-      console.log(result.user); // Access the user's details
-      setUser({
+      const userObj = {
         uid: result.user.uid,
         displayName: result.user.displayName,
         email: result.user.email,
         photoURL: result.user.photoURL,
-      });
+      };
+
+      // Fetch the user from Firestore
+      const userRef = doc(db, "users", userObj.uid);
+      const userSnapshot = await getDoc(userRef);
+
+      if (userSnapshot.exists()) {
+        // If user already exists, merge the data
+        const userData = userSnapshot.data();
+        setUser({ ...userObj, ...userData });
+      } else {
+        // If user doesn't exist, set default values for additional fields
+        const defaultData = {
+          optimismCredit: "0",
+          userMetadata: {},
+        };
+
+        await setDoc(userRef, { ...userObj, ...defaultData });
+        setUser({ ...userObj, ...defaultData });
+      }
     } catch (error) {
       console.error("Google Login Error: ", error);
     }
