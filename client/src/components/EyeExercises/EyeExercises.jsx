@@ -90,7 +90,7 @@ function EyeExercises({ onComplete }) {
     background:
       "radial-gradient(circle at 60% 40%, #ffffff, #ddd, transparent), radial-gradient(circle at 40% 60%, #ffffff88, #aaa, transparent)",
     boxShadow:
-      "0 0 15px 5px rgba(255,255,255,0.6), 0 0 30px 10px rgba(255,255,255,0.4), 0 0 45px 15px rgba(255,255,255,0.2)",
+      "0 0 25px 15px rgba(255,255,255,0.6), 0 0 40px 20px rgba(255,255,255,0.4), 0 0 55px 25px rgba(255,255,255,0.2)",
     position: "absolute",
     top: circlePosition.top,
     left: circlePosition.left,
