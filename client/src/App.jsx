@@ -9,8 +9,8 @@ import UserContext from "./context/userContext";
 
 import HomePage from "./components/HomePage/HomePage";
 import EyeExercises from "./components/EyeExercises/EyeExercises";
-import BubbleBtn from './components/BubbleBtn/BubbleBtn';
-import EyeBall from './components/EyeBall/EyeBall';
+import BubbleBtn from "./components/BubbleBtn/BubbleBtn";
+import EyeBall from "./components/EyeBall/EyeBall";
 import Login from "./components/Login/Login";
 import Leaderboard from "./components/Leaderboard/Leaderboard";
 
@@ -35,15 +35,17 @@ function App() {
     <UserProvider>
       <Router>
         <Routes>
-      <Route path="/button-test" element={<BubbleBtn />} /> 
-   
+          <Route path="/button-test" element={<BubbleBtn />} />
+
           <Route path="/" element={<PublicRoute component={Login} />} />
           <Route path="/home" element={<LoggedRoute component={HomePage} />} />
 
           <Route path="/eye-ball" element={<EyeBall />} />
-          <Route path="/eye-exercises" element={<LoggedRoute component={EyeExercises} />} />
-         {/* delete later */}
-             </Routes>
+          <Route
+            path="/eye-exercises"
+            element={<LoggedRoute component={EyeExercises} />}
+          />
+
           <Route
             path="/leaderboard"
             element={<LoggedRoute component={Leaderboard} />}
@@ -53,7 +55,10 @@ function App() {
             path="logout"
             element={
               <>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={handleLogout}>
+                <button
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={handleLogout}
+                >
                   Logout
                 </button>
               </>
