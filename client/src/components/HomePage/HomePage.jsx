@@ -81,7 +81,11 @@ const HomePage = () => {
               <p>
                 Guarding Vision, <br /> One Frame at a Time{" "}
               </p>
-              <button>Start Eye Exercise</button>
+              <button>
+                <a href="/eye-exercises" className="block w-full">
+                  Start Eye Exercise
+                </a>
+              </button>
             </article>
           </div>
         </div>
