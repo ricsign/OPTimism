@@ -41,6 +41,7 @@ const Leaderboard = () => {
         </div>
       ),
       sorter: (a, b) => a.name.localeCompare(b.name),
+      align: "center",
     },
     {
       title: "Health Score",
@@ -55,13 +56,14 @@ const Leaderboard = () => {
         </Tag>
       ),
       defaultSortOrder: "descend",
+      align: "center",
     },
   ];
 
   return (
-    <div className="p-10 bg-gray-100 min-h-screen">
-      <div className="bg-white p-6 rounded-xl shadow-md">
-        <h1 className="text-4xl text-gray-800 font-bold mb-6">
+    <div className="p-16 bg-gradient-to-br from-[#D1C4E9] to-[#BBDEFB] min-h-screen">
+      <div className="bg-white p-10 rounded-xl shadow-lg">
+        <h1 className="text-4xl text-gray-800 font-extrabold mb-10">
           OPTimism Leaderboard
         </h1>
         <Table
@@ -69,8 +71,9 @@ const Leaderboard = () => {
           columns={columns}
           rowKey="id"
           pagination={{ pageSize: 10 }}
-          className="rounded-lg"
+          className="rounded-lg transition-shadow hover:shadow-xl"
           size="middle"
+          rowClassName="hover:bg-gray-100 transition-colors"
         />
       </div>
     </div>
