@@ -22,10 +22,12 @@ const Leaderboard = () => {
     const fetchData = async () => {
       const userList = await getUsers();
       setUsers(
-        userList.map((user) => ({
-          ...user,
-          healthScore: user.userMetadata?.healthScore || 0,
-        }))
+        userList
+          .map((user) => ({
+            ...user,
+            healthScore: user.userMetadata?.healthScore || 0,
+          }))
+          .sort((a, b) => b.healthScore - a.healthScore) // Sort by healthScore in descending order
       );
     };
     fetchData();
@@ -46,7 +48,7 @@ const Leaderboard = () => {
     {
       title: "Health Score",
       dataIndex: "healthScore",
-      sorter: (a, b) => a.healthScore - b.healthScore,
+      // sorter: (a, b) => b.healthScore - a.healthScore, // change to descending order
       render: (score) => (
         <Tag
           color={score > 50 ? "#34D399" : "#F87171"}
@@ -55,9 +57,25 @@ const Leaderboard = () => {
           {score}
         </Tag>
       ),
-      defaultSortOrder: "descend",
+      // defaultSortOrder: "descend", // default sorting order
       align: "center",
     },
+    {
+      title: "Today's Rewards",
+      dataIndex: "id",
+      render: (id, record, index) => {
+        if (index < 3) {
+          return (
+            <div className="flex items-center justify-center">
+              <span className="text-xl mr-2">👑</span>
+              <span className="text-xl font-bold">+{30 / (index + 1)}</span>
+            </div>
+          );
+        }
+        return null;
+      },
+      align: "center",
+    },    
   ];
 
   return (

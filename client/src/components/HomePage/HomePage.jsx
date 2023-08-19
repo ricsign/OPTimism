@@ -19,7 +19,7 @@ const HomePage = () => {
           <p className="website_name">OPTimism</p>
           <div className="menu_links">
             <a href="/analytics" className="link">
-              Analytics
+              My OPTimism
             </a>
             <a href="/leaderboard" className="link">
               Leaderboard
@@ -27,7 +27,7 @@ const HomePage = () => {
             <a href="/redeem" className="link">
               Rewards
             </a>
-            <a href="/donation" className="link">
+            <a href="/donate" className="link">
               Donate
             </a>
             <a href="/logout" className="link">
@@ -79,7 +79,8 @@ const HomePage = () => {
           <div className="text">
             <article>
               <p>
-                Guarding Vision, <br /> One Frame at a Time{" "}
+                Guarding Vision, One Frame at a Time <br />
+                Train, Track, Ask, Enhance
               </p>
               <button>
                 <a href="/eye-exercises" className="block w-full">
