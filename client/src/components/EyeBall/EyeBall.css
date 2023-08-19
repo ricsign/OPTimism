@@ -21,9 +21,10 @@ body *, body *:before, body *:after {
 .eye-container {
 	position: relative;
 	width: 100%;
-	min-width: 800px;
+	min-width: 900px;
 	height: 100%;
-	min-height: 800px;
+	min-height: 900px;
+	overflow: hidden;
 	/* width: 100vw;
 	min-width: 800px;
 	height: 100vh;
@@ -43,6 +44,7 @@ body *, body *:before, body *:after {
 	background: linear-gradient(-45deg, #8691b3, #edeef3);
 	z-index: -1; /* Place the background below other content */
 	opacity: 0.5; /* Adjust the opacity as needed */
+	background-attachment: fixed;
   }
 	
   .eye-container *, .eye-container *:before, .eye-container *:after {

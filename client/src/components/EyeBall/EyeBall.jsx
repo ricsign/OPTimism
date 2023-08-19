@@ -4,13 +4,13 @@ import './EyeBall.css?ra'
 function EyeBall() {
     const eyeStyles = {
     
-        width: "100%",
-        height: "100%",
-        transform: "translate(-50%, -50%)",
-        borderRadius: "50%",
-        background: "#EBEDF3",
-        filter: "blur(5px)",
-        animation: "eyeAnimation 4s cubic-bezier(1, 0, 1, 1) infinite",
+        // width: "100%",
+        // height: "100%",
+        // transform: "translate(-50%, -50%)",
+        // borderRadius: "50%",
+        // background: "#EBEDF3",
+        // filter: "blur(5px)",
+        // animation: "eyeAnimation 4s cubic-bezier(1, 0, 1, 1) infinite",
       };
     
       return (
@@ -18,7 +18,7 @@ function EyeBall() {
         <div className="eye-container">
         <div className="background"></div>
         
-          <div className="eye" style={eyeStyles}></div>
+          {/* <div className="eye" style={eyeStyles}></div> */}
           <div className="eye"></div>
     
           <div className="circle-1"></div>
