@@ -22,7 +22,8 @@ function App() {
           <Route path="/home" element={<LoggedRoute component={HomePage} />} />
         <Route path="/eye-ball" element={<EyeBall />} />
           <Route path="/eye-exercises" element={<LoggedRoute component={EyeExercises} />} />
-         {/* delete later */}
+           
+             
              </Routes>
       </Router>
     </UserProvider>
