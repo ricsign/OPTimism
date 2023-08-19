@@ -18,6 +18,7 @@ import LoggedRoute from "./routes/LoggedRoute";
 import PublicRoute from "./routes/PublicRoute";
 import Redemption from "./components/Redemption/Redemption";
 import Analytics from "./components/Analytics/Analytics";
+import Logout from "./components/Logout/Logout";
 
 function App() {
   const { setUser } = useContext(UserContext);
@@ -42,7 +43,10 @@ function App() {
           <Route path="/" element={<PublicRoute component={Login} />} />
           <Route path="/home" element={<LoggedRoute component={HomePage} />} />
 
-          <Route path="/analytics" element={<LoggedRoute component={Analytics} />} />
+          <Route
+            path="/analytics"
+            element={<LoggedRoute component={Analytics} />}
+          />
 
           <Route path="/eye-ball" element={<EyeBall />} />
           <Route
@@ -59,19 +63,7 @@ function App() {
             element={<LoggedRoute component={Redemption} />}
           />
 
-          <Route
-            path="logout"
-            element={
-              <>
-                <button
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </button>
-              </>
-            }
-          />
+          <Route path="logout" element={<LoggedRoute component={Logout} />} />
         </Routes>
       </Router>
     </UserProvider>
