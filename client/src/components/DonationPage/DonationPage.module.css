@@ -52,7 +52,7 @@ fieldset {
   padding-inline-end: 0;
 }
 @media (min-width: 992px) {
-  body {
+  .DonationPage {
     display: flex;
     align-items: center;
     flex-direction: column;

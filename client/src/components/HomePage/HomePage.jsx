@@ -27,7 +27,7 @@ const HomePage = () => {
             <a href="/redeem" className="link">
               Rewards
             </a>
-            <a href="/dontate" className="link">
+            <a href="/donate" className="link">
               Donate
             </a>
             <a href="/logout" className="link">
