@@ -1,0 +1,341 @@
+/* body {
+    background-image: linear-gradient(30deg, #8E78FF, #B9DEDB);
+} */
+
+.container {
+    /* display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column; */
+    /* width: 100vw;
+    max-width: 100%;
+    height: 120vh; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    /* width: 100vw;
+    height: 100vh; */
+    
+    background-size: cover;
+
+    /* background-position: 50% 50%; */
+}
+
+
+.under-container {
+    width: 100vw;
+    height:100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.line {
+   
+    display: flex;
+    position: relative;
+    z-index: 3;
+}
+
+
+.square {
+    font-size: 300%;
+    font-weight: 500;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    cursor: default;
+    transition: all 0.3s;
+    color: #fff;
+}
+
+.square:hover {
+    color: #08FDD8;
+}
+
+
+.bubble {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 20px;
+    padding-top: 0;
+}
+/* 
+.bubble::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 40vw;
+    height: 40vw;
+    min-height: 10px;
+    min-width: 20px;
+    background: linear-gradient(270deg,
+            #54c078,
+            #2aac94,
+            #cca1f4,
+            #6daded,
+            #77afe1,
+            #00f2fe,
+            #a8edea,
+            #f0b5c8);
+    background-size: 1600% 1600%;
+    box-shadow: inset 0px -20px 100px 0px rgba(255, 255, 255, 0.48);
+    animation:
+        transform 20s linear infinite alternate,
+        movement 40s linear infinite alternate,
+        shade 60s linear infinite alternate;
+} */
+
+.bubble::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 20vw;
+    height: 20vw;
+    min-height: 20px;
+    min-width: 20px;
+    background: linear-gradient(270deg,
+            #00f2fe,
+            #8ec5fc,
+            #38f9d7,
+            #4facfe,
+            #a8edea,
+            #43e97b,
+            #e0c3fc,
+            #fed6e3);
+    background-size: 1600% 1600%;
+    box-shadow: inset 0px -20px 100px 0px rgba(255, 255, 255, 0.48);
+    animation:
+        transform2 20s linear infinite alternate-reverse,
+        movement 40s linear infinite alternate-reverse,
+        shade 60s linear infinite alternate-reverse;
+}
+
+@keyframes transform {
+
+    0%,
+    100% {
+        border-radius: 33% 67% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    20% {
+        border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%;
+    }
+
+    40% {
+        border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%;
+    }
+
+    60% {
+        border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%;
+    }
+
+    80% {
+        border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
+    }
+}
+
+@keyframes transform2 {
+    0% {
+        border-radius: 42% 58% 60% 40% / 32% 54% 46% 68%
+    }
+
+    20% {
+        border-radius: 59% 41% 36% 64% / 32% 64% 36% 68%
+    }
+
+    40% {
+        border-radius: 48% 52% 52% 48% / 54% 53% 47% 46%
+    }
+
+    60% {
+        border-radius: 42% 58% 51% 49% / 63% 64% 36% 37%
+    }
+
+    80% {
+        border-radius: 32% 68% 33% 67% / 63% 35% 65% 37%
+    }
+
+    100% {
+        border-radius: 34% 66% 52% 48% / 34% 53% 47% 66%
+    }
+}
+
+@keyframes movement {
+    from {
+        -webkit-transform: rotate(-1turn) translateY(-50px);
+        transform: rotate(-1turn) translateY(-50px);
+    }
+
+    to {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes shade {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+
+
+@-webkit-keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, .75, 1);
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, .85, 1);
+        transform: scale3d(1.15, .85, 1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+@keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, .75, 1);
+        -ms-transform: scale3d(1.25, .75, 1);
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        -ms-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, .85, 1);
+        -ms-transform: scale3d(1.15, .85, 1);
+        transform: scale3d(1.15, .85, 1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        -ms-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        -ms-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+.rubberBand {
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand
+}
+
+.mouse {
+    display: flex;
+    width: 30px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 30px;
+}
+
+.molette {
+    margin: 12px auto auto auto;
+    width: 3px;
+    height: 3px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 90px;
+    animation: scroll 2s ease infinite;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+        margin: 10px auto auto auto;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        margin: 10px auto auto auto;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        margin: 18px auto auto auto;
+    }
+}
+
+.mousetext {
+    color: #fff;
+    font-weight: 500;
+} 
+
+
+@media only screen and (max-width: 600px) {
+    .square {
+        font-size: 30vw;
+    }
+
+}
