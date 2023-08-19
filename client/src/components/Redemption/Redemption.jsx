@@ -10,7 +10,7 @@ const products = [
     name: "Eye Drop",
     credits: 10,
     description:
-      "Eye drops for dry eyes and eye strain. The best eye drops for you may depend on what’s drying your eyes out.",
+      "Eye drops for dry eyes and eye strain. The best eye drops for you may depend on what’s drying your eyes out. Dry eyes are a common problem, especially in older adults. Many people use eye drops to relieve dryness, but it is important to choose the right type of drops.",
     image:
       "https://static.oxinis.com/healthmug/image/product/3159-1-800.webp",
   },
