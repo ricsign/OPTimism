@@ -30,7 +30,7 @@ const HomePage = () => {
             <a href="/redeem" className="link">
               Rewards
             </a>
-            <a href="/donate" className="link">
+            <a href="/donation" className="link">
               Donate
             </a>
             <a href="/logout" className="link">
