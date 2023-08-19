@@ -1,7 +1,11 @@
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { auth } from "./utils/firebaseConfig";
+import { signOut } from "firebase/auth";
 import "./App.css";
 
 import UserProvider from "./context/userProvider";
+import UserContext from "./context/userContext";
 
 import HomePage from "./components/HomePage/HomePage";
 import EyeExercises from "./components/EyeExercises/EyeExercises";
@@ -10,13 +14,41 @@ import LoggedRoute from "./routes/LoggedRoute";
 import PublicRoute from "./routes/PublicRoute";
 
 function App() {
+  const { setUser } = useContext(UserContext);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth); // Sign out from Firebase
+      setUser(null); // Clear the user from context
+      localStorage.removeItem("user"); // Remove user from localStorage
+      window.location.href = "/"; // Redirect to home (or login) page
+    } catch (error) {
+      console.error("Failed to log out:", error);
+    }
+  };
+
   return (
     <UserProvider>
       <Router>
         <Routes>
           <Route path="/" element={<PublicRoute component={Login} />} />
           <Route path="/home" element={<LoggedRoute component={HomePage} />} />
-          <Route path="/eye-exercises" element={<LoggedRoute component={EyeExercises} />} />
+          <Route
+            path="/eye-exercises"
+            element={<LoggedRoute component={EyeExercises} />}
+          />
+
+
+          <Route
+            path="logout"
+            element={
+              <>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={handleLogout}>
+                  Logout
+                </button>
+              </>
+            }
+          />
         </Routes>
       </Router>
     </UserProvider>
