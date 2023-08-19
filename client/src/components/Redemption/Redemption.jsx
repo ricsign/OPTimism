@@ -52,7 +52,6 @@ const Redemption = () => {
   const { user, setUser } = useContext(UserContext);
   const [visible, setVisible] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [address, setAddress] = useState("");
 
   const redeemProduct = async (product) => {
     if (user.optimismCredit >= product.credits) {
@@ -138,15 +137,32 @@ const Redemption = () => {
         onOk={handleOk}
         onCancel={() => setVisible(false)}
         className="rounded-lg transition-all duration-300"
+        footer={[
+            <button
+                key="back"
+                onClick={() => setVisible(false)}
+                className="rounded-full bg-gradient-to-r font-bold py-2 px-4 mr-3"
+            >
+                Cancel
+            </button>,
+            <button
+                key="submit"
+                onClick={handleOk}
+                className="rounded-full bg-gradient-to-r from-[#9575CD] to-[#64B5F6] text-white font-semibold py-2 px-4"
+            >
+                Confirm
+            </button>,
+        ]}
       >
-        <p className="mb-4">Confirm your shipping address:</p>
-        <Input.TextArea
-          rows={4}
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder="Enter your address"
-          className="rounded-lg"
-        />
+        <p className="text-gray-600">
+            Please enter your detail below to confirm your redemption.
+        </p>
+        <div className="flex space-x-4">
+        <Input placeholder="First Name" className="mt-4" />
+        <Input placeholder="Last Name" className="mt-4" />
+        </div>
+        <Input placeholder="Phone Number" className="mt-4" />
+        <Input placeholder="Address" className="mt-4" />
       </Modal>
     </div>
   );

@@ -36,7 +36,7 @@ const Leaderboard = () => {
       title: "Profile",
       dataIndex: "photoURL",
       render: (src, record) => (
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 ml-10">
           <Image width={50} src={src} className="rounded-full" />
           <span>{record.displayName}</span>
         </div>
@@ -50,7 +50,7 @@ const Leaderboard = () => {
       render: (score) => (
         <Tag
           color={score > 50 ? "#34D399" : "#F87171"}
-          className="rounded text-center w-20"
+          className="rounded text-center w-20 font-bold"
         >
           {score}
         </Tag>
@@ -65,7 +65,7 @@ const Leaderboard = () => {
       <div className="bg-white p-10 rounded-xl shadow-lg">
         <div className="flex justify-between">
           <h1 className="text-4xl text-gray-800 font-extrabold mb-10">
-            OPTimism Leaderboard
+            Leaderboard
           </h1>
           <HomeOutlined
             className="text-xl text-gray-800 font-extrabold mb-10 hover:scale-150 transition-transform duration-300"
@@ -77,7 +77,7 @@ const Leaderboard = () => {
           columns={columns}
           rowKey="id"
           pagination={{ pageSize: 10 }}
-          className="rounded-lg transition-shadow hover:shadow-xl"
+          className="rounded-lg transition-shadow hover:shadow-xl w-[80%] mx-auto"
           size="middle"
           rowClassName="hover:bg-gray-100 transition-colors"
         />
