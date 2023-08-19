@@ -1,0 +1,73 @@
+.GiftFrequency {
+  /* margin-top: 6rem; */
+}
+
+.Title {
+  color: var(--white);
+  padding-bottom: 0.8rem;
+}
+.Frequency {
+  padding: 0.2rem;
+  background: var(--dark-blue);
+  border-radius: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 90%;
+}
+
+.RadioWrapper {
+  padding: 1.5rem 0.6rem;
+}
+
+.Radio {
+  display: none;
+}
+
+.Radio:checked + label {
+  background-color: var(--medium-blue);
+}
+
+.RadioWrapper label {
+  cursor: pointer;
+  color: var(--white);
+  height: 90%;
+  padding: 1rem 1.4rem;
+  border-radius: 5rem;
+  transition: all ease-in-out 0.1s;
+}
+
+.RadioWrapper label:hover {
+  background-color: var(--medium-blue);
+}
+
+@media (min-width: 499px) {
+  .Frequency {
+    max-width: 80%;
+  }
+  .RadioWrapper {
+    padding: 1.5rem 1rem;
+  }
+  .RadioWrapper label {
+    padding: 1rem 1.9rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .GiftFrequency {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .GiftFrequency {
+    margin-top: 1rem;
+  }
+  .Frequency {
+    max-width: 70%;
+  }
+  .RadioWrapper label {
+    padding: 1rem 2.1rem;
+  }
+}

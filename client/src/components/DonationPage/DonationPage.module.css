@@ -1,151 +1,85 @@
-.donation-form {
-    background-color: #D1C4E9;
-    height: 100vh;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    
+.DonationPage {
+  padding: 2rem;
+  background: var(--medium-blue);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  
 }
-  
-  .progress-bg {
-      /* margin: 0 auto; */
-    /* margin-top: 20%; */
-      width: 65%;
-      height: 78px;
-      border-radius: 10px;
-    text-align: center;
-      -moz-box-shadow:    inset 0 0 10px  #695681;;
-      -webkit-box-shadow: inset 0 0 10px  #695681;;
-      box-shadow:         inset 0 0 10px  #695681;;
+
+@media (min-width: 499px) {
+  .DonationPage {
+    height: 100vh;
   }
+}
+
+@media (min-width: 576px) {
+  .DonationPage {
+    /* max-width: 35rem; */
+    margin: 0 auto;
+  }
+}
 
 
-  
-  .progress-bar {
-    
-      height: 78px;
-      border-radius: 10px;
-      float: left;
-      width: 50%;
-      /* fallback */ 
-      background-color: #1c1d4a; 
-      
-      /* Safari 4-5, Chrome 1-9 */ 
-      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1c314a), to(#27425f)); 
-      
-      /* Safari 5.1, Chrome 10+ */ 
-      background: -webkit-linear-gradient(top, #1c314a, #27425f); 
-      
-      /* Firefox 3.6+ */ 
-      background: -moz-linear-gradient(top, #1c314a, #27425f); 
-      
-      /* IE 10 */ 
-      background: -ms-linear-gradient(top, #1c314a, #27425f); 
-      
-      /* Opera 11.10+ */ 
-      background: -o-linear-gradient(top, #1c314a, #27425f);	
-  }
-  
-  .progress-bg h3.goal, .progress-bg h3.raised {
-      font-family: Arial,sans-serif;
-    font-size: 2em;
-    font-weight: 600;
-      line-height: 78px;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      display: inline;
-  }
-  
-  
-  .progress-bg h3.raised {
-      color: #fff;
-      margin: 14px 25px 0 50px;
-      padding: 0 25px 0 0;
-  }
-  
-  .progress-bg h3.goal {
-      color: #49497b;
-    text-align: center;
-  }
-  
-  .donation-form .progress-bg h3.raised {
-      -webkit-animation: fadein 4s; /* Safari and Chrome */
-         -moz-animation: fadein 4s; /* Firefox */
-          -ms-animation: fadein 4s; /* Internet Explorer */
-           -o-animation: fadein 4s; /* Opera */
-              animation: fadein 4s;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
 
-  @media screen and (max-width: 768px) {
-    .progress-bg h3.goal,
-    .progress-bg h3.raised {
-      font-size: 1.5em; /* Adjust the font size as needed */
-    }
-  }
-  
-  @keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }
-  
-  /* Firefox */
-  @-moz-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }
-  
-  /* Safari and Chrome */
-  @-webkit-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }
-  
-  /* Internet Explorer */
-  @-ms-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }
-  ​
-/*   
+:root {
+  --dark-blue: #21213b;
+  --medium-blue: #2f2f4f;
+  --soft-blue: #708aff;
+  --blue-sky: #1865f2;
+  --white: #fff;
+}
 
-  @-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}​ */
+/* body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--dark-blue);
+  height: 100vh;
+} */
+
+fieldset {
+  border: 0;
+  padding-block-start: 0;
+  margin-inline-end: 0;
+  padding-block-end: 0;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+@media (min-width: 992px) {
+  body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 
 
-  .progress-bg h3.goal {
-      float: right;
-      display: inline;
-      padding: 0 25px 0 0;
-    text-align: center;
+@media (min-width: 992px) {
+  .DonationPage {
+    /* max-height: 45rem; */
+    /* max-width: 61rem; */
+    /* border-radius: 1rem; */
+    flex-direction: row;
+    justify-content: space-between;
   }
-  
-  .donation-form .progress-bg div {
-      -webkit-animation: progress-bar 2s ease forwards;
-      -moz-animation: progress-bar 2s ease forwards;
-      -o-animation: progress-bar 2s ease forwards;
-      animation: progress-bar 2s ease forwards;
+}
+
+/* @media (min-width: 1200px) {
+  .DonationPage {
+    max-width: 70rem;
   }
-  
-  @-webkit-keyframes progress-bar {
-      from { width: 0%; }
-      to { width: 50%; }
+} */
+
+
+@media (max-width: 600px) {
+  .hide-help-us {
+    display: none;
   }
-  
-  @-moz-keyframes progress-bar {
-      from { width: 0%; }
-      to { width: 50%; }
-  }
-  
-  @-o-keyframes progress-bar {
-      from { width: 0%; }
-      to { width: 50%; }
-  }
-  
-  @keyframes progress-bar {
-      from { width: 0%; }
-      to { width: 50%; }
-  }
-  
+}

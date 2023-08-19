@@ -1,0 +1,15 @@
+.HelpUsTitle {
+  padding-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.HelpUs {
+  color: var(--white);
+  flex: 1;
+}
+
+@media (min-width: 1200px) {
+  .HelpUsTitle {
+    font-size: 2rem;
+  }
+}

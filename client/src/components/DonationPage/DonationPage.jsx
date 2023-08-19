@@ -1,43 +1,56 @@
-import React, { useState } from "react";
-// import "./DonationPage.css";
+import React from "react";
 import DonationForm from '../DonationPage/DonationForm';
 import HelpUs from '../DonationPage/HelpUs';
 import classes from '../DonationPage/DonationPage.module.css'
 
 function DonationPage() {
-//   const [amount, setAmount] = useState("");
 
-//   const [currentCount, setCurrentCount] = useState(1);
-//   const subtotal = 5;
+  const useState = React.useState;
+  const useEffect = React.useEffect;
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-//   const handlePlus = () => {
-//     setCurrentCount(currentCount + 1);
-//   };
+  const [apiResponse, setApiResponse] = useState(null);
 
-//   const handleMinus = () => {
-//     if (currentCount > 1) {
-//       setCurrentCount(currentCount - 1);
-//     }
-//   };
+  useEffect(() => {
+    fetchCircleAPI();
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+
+
+  const fetchCircleAPI = () => {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json'
+      }
+    };
+
+    fetch('https://api.circle.com/ping', options)
+      .then(response => response.json())
+      .then(data => setApiResponse(data))
+      .catch(error => console.error(error));
+  };
+
+  const checkScreenSize = () => {
+    setIsSmallScreen(window.innerWidth <= 600);
+  };
 
   return (
-
-    // <div className="donation-form">
-    //   <div className="progress-bg">
-    //     <div className="progress-bar">
-    //       <h3 className="raised">$50,000&nbsp;raised </h3>
-    //     </div>
-
-    //     <h3 className="goal">Goal: $100,000</h3>
-    //   </div>
-
-      
-    // </div>
-
-    <main className={classes.DonationPage}>
-      <HelpUs />
-      <DonationForm />
-    </main>
+<div className="donation-wrapper">
+{/* {apiResponse && (
+        JSON.stringify(apiResponse, null, 2)
+      )} */}
+      {apiResponse ? (
+        <main className={classes.DonationPage}>
+        {!isSmallScreen && <HelpUs />}
+        <DonationForm />
+      </main>
+      ) : null} </div>
     
   );
 }
