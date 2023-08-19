@@ -27,7 +27,7 @@ const HomePage = () => {
             <a href="/redeem" className="link">
               Rewards
             </a>
-            <a href="/dontate" className="link">
+            <a href="/donate" className="link">
               Donate
             </a>
             <a href="/logout" className="link">
@@ -79,7 +79,8 @@ const HomePage = () => {
           <div className="text">
             <article>
               <p>
-                Guarding Vision, <br /> One Frame at a Time{" "}
+                Guarding Vision, One Frame at a Time <br />
+                Train, Track, Ask, Enhance
               </p>
               <button>
                 <a href="/eye-exercises" className="block w-full">

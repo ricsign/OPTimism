@@ -17,6 +17,7 @@ import Leaderboard from "./components/Leaderboard/Leaderboard";
 import LoggedRoute from "./routes/LoggedRoute";
 import PublicRoute from "./routes/PublicRoute";
 import Redemption from "./components/Redemption/Redemption";
+import Analytics from "./components/Analytics/Analytics";
 
 function App() {
   const { setUser } = useContext(UserContext);
@@ -40,6 +41,8 @@ function App() {
 
           <Route path="/" element={<PublicRoute component={Login} />} />
           <Route path="/home" element={<LoggedRoute component={HomePage} />} />
+
+          <Route path="/analytics" element={<LoggedRoute component={Analytics} />} />
 
           <Route path="/eye-ball" element={<EyeBall />} />
           <Route
