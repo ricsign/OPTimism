@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Card, Modal, Button, Input, message, Row, Col } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
 import UserContext from "../../context/userContext";
 import { db } from "../../utils/firebaseConfig";
 import { doc, updateDoc } from "firebase/firestore";
@@ -9,7 +10,7 @@ const products = [
     name: "Eye Drop",
     credits: 10,
     description:
-      "Eye drops for dry eyes and eye strain. The best eye drops for you may depend on what’s drying your eyes out.",
+      "Eye drops for dry eyes and eye strain. The best eye drops for you may depend on what’s drying your eyes out. Dry eyes are a common problem, especially in older adults. Many people use eye drops to relieve dryness, but it is important to choose the right type of drops.",
     image:
       "https://static.oxinis.com/healthmug/image/product/3159-1-800.webp",
   },
@@ -51,7 +52,6 @@ const Redemption = () => {
   const { user, setUser } = useContext(UserContext);
   const [visible, setVisible] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [address, setAddress] = useState("");
 
   const redeemProduct = async (product) => {
     if (user.optimismCredit >= product.credits) {
@@ -87,7 +87,15 @@ const Redemption = () => {
   return (
     <div className="p-16 bg-gradient-to-br from-[#9575CD] to-[#64B5F6] min-h-screen">
       <div className="bg-white p-10 rounded-xl shadow-lg">
-        <h1 className="text-4xl text-gray-800 font-extrabold mb-10">Rewards</h1>
+      <div className="flex justify-between">
+          <h1 className="text-4xl text-gray-800 font-extrabold mb-10">
+            Rewards
+          </h1>
+          <HomeOutlined
+            className="text-xl text-gray-800 font-extrabold mb-10 hover:scale-150 transition-transform duration-300"
+            onClick={() => (window.location.href = "/home")}
+          />
+        </div>
 
         <Row gutter={32}>
           {products.map((product) => (
@@ -129,15 +137,32 @@ const Redemption = () => {
         onOk={handleOk}
         onCancel={() => setVisible(false)}
         className="rounded-lg transition-all duration-300"
+        footer={[
+            <button
+                key="back"
+                onClick={() => setVisible(false)}
+                className="rounded-full bg-gradient-to-r font-bold py-2 px-4 mr-3"
+            >
+                Cancel
+            </button>,
+            <button
+                key="submit"
+                onClick={handleOk}
+                className="rounded-full bg-gradient-to-r from-[#9575CD] to-[#64B5F6] text-white font-semibold py-2 px-4"
+            >
+                Confirm
+            </button>,
+        ]}
       >
-        <p className="mb-4">Confirm your shipping address:</p>
-        <Input.TextArea
-          rows={4}
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder="Enter your address"
-          className="rounded-lg"
-        />
+        <p className="text-gray-600">
+            Please enter your detail below to confirm your redemption.
+        </p>
+        <div className="flex space-x-4">
+        <Input placeholder="First Name" className="mt-4" />
+        <Input placeholder="Last Name" className="mt-4" />
+        </div>
+        <Input placeholder="Phone Number" className="mt-4" />
+        <Input placeholder="Address" className="mt-4" />
       </Modal>
     </div>
   );

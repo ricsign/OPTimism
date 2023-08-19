@@ -1,10 +1,31 @@
 import React, { useState, useEffect } from "react";
-import EyeBall from "../EyeBall/EyeBall"
+import EyeBall from "../EyeBall/EyeBall";
+import "./EyeExercises.css";
 
+// eslint-disable-next-line react/prop-types
 function EyeExercises({ onComplete }) {
+  const positions = [
+    { top: "30px", left: "30px" }, // Top-left
+    {
+      top: `${Math.floor(Math.random() * 100)}vh`,
+      left: `${Math.floor(Math.random() * 100)}vw`,
+    }, // Random
+    { top: "calc(100vh - 150px)", left: "calc(100vw - 60px)" }, // Bottom-right
+    {
+      top: `${Math.floor(Math.random() * 100)}vh`,
+      left: `${Math.floor(Math.random() * 100)}vw`,
+    }, // Random
+    { top: "30px", left: "calc(100vw - 60px)" }, // Top-right
+    {
+      top: `${Math.floor(Math.random() * 100)}vh`,
+      left: `${Math.floor(Math.random() * 100)}vw`,
+    }, // Random
+    { top: "calc(100vh - 60px)", left: "30px" }, // Bottom-left
+  ];
+
   const [displayText, setDisplayText] = useState("3");
   const [showCircle, setShowCircle] = useState(false);
-  const [circlePosition, setCirclePosition] = useState({ top: 0, left: 0 });
+  const [circlePosition, setCirclePosition] = useState({ top: "30px", left: "30px" });
   const [clickCount, setClickCount] = useState(0);
   const [textOptions, setTextOptions] = useState([
     "Now rotate your neck counterclockwise",
@@ -16,7 +37,6 @@ function EyeExercises({ onComplete }) {
   ]);
   const [showEyeBall, setShowEyeBall] = useState(false); // State to track EyeBall display
 
- 
   useEffect(() => {
     if (displayText === "0") {
       setShowCircle(true);
@@ -30,11 +50,10 @@ function EyeExercises({ onComplete }) {
   }, [displayText]);
 
   useEffect(() => {
-    if (clickCount === 8) {
-     
+    if (clickCount === positions.length + 4) {
       setShowEyeBall(true); // Show EyeBall component
       const timeout = setTimeout(() => {
-        setShowEyeBall(false); 
+        setShowEyeBall(false);
         setClickCount((prevClickCount) => prevClickCount + 1); // Increment clickCount
         // Hide EyeBall component after 3 seconds
       }, 3000);
@@ -42,18 +61,9 @@ function EyeExercises({ onComplete }) {
     }
   }, [clickCount]);
 
-
-  
   const handleCircleClick = () => {
     if (showCircle) {
       setClickCount((prevClickCount) => prevClickCount + 1); // Increment clickCount
-
-      const positions = [
-        { top: "0", left: "0" }, // Top-left
-        { top: "calc(100vh - 50px)", left: "calc(100vw - 50px)" }, // Bottom-right
-        { top: "0", left: "calc(100vw - 50px)" }, // Top-right
-        { top: "calc(100vh - 50px)", left: "0" }, // Bottom-left
-      ];
 
       const newPosition = positions[(clickCount + 1) % positions.length];
       setCirclePosition(newPosition); // Update circlePosition
@@ -77,17 +87,22 @@ function EyeExercises({ onComplete }) {
     width: "50px",
     height: "50px",
     borderRadius: "50%",
-    backgroundColor: "white",
+    background:
+      "radial-gradient(circle at 60% 40%, #ffffff, #ddd, transparent), radial-gradient(circle at 40% 60%, #ffffff88, #aaa, transparent)",
+    boxShadow:
+      "0 0 25px 15px rgba(255,255,255,0.6), 0 0 40px 20px rgba(255,255,255,0.4), 0 0 55px 25px rgba(255,255,255,0.2)",
     position: "absolute",
     top: circlePosition.top,
     left: circlePosition.left,
     cursor: "pointer",
+    animation: "pulse 2s infinite, rotate 50s infinite",
+    transition: "all 0.4s ease-in-out",
   };
 
   const handleBlackScreenClick = () => {
     setClickCount((prevClickCount) => prevClickCount + 1);
 
-    if (clickCount === 9) {
+    if (clickCount === positions.length + 4) {
       onComplete();
     }
   };
@@ -98,13 +113,13 @@ function EyeExercises({ onComplete }) {
       {/* debug use only */}
       {/* <p style={{ color: "white", fontSize: "24px" }}>{clickCount}</p> */}
 
-      {clickCount >= 4 ? (
+      {clickCount >= positions.length ? (
         <div style={{ textAlign: "center" }} onClick={handleBlackScreenClick}>
           {showEyeBall ? (
             <EyeBall /> // Display EyeBall component when showEyeBall is true
           ) : (
             <p style={{ color: "white", fontSize: "24px" }}>
-              {textOptions[clickCount - 4]}
+              {textOptions[clickCount - positions.length]}
             </p>
           )}
         </div>
