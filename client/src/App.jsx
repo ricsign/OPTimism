@@ -3,6 +3,7 @@ import "./App.css";
 
 import HomePage from "./components/HomePage/HomePage";
 import EyeExercises from "./components/EyeExercises/EyeExercises";
+import Login from "./components/Login/Login";
 
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
     <>
       <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<HomePage />} />
+
         <Route path="/eye-exercises" element={<EyeExercises />} />
       </Routes>
     </Router>
