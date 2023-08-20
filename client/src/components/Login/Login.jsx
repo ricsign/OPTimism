@@ -10,9 +10,24 @@ import UserContext from "../../context/userContext";
 function Login() {
   const { user, setUser } = useContext(UserContext);
 
+  const emailList = [
+    "polly.liu4@gmail.com",
+    "lindawang311@gmail.com",
+    "edmondli0527@gmail.com",
+    "richardshuai03@gmail.com",
+  ];
+
   const handleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
+
+      if (!emailList.includes(result.user.email)) {
+        alert(
+          "This app is only available to beta testers. Please contact the developers for more information."
+        );
+        return;
+      }
+      
       const userObj = {
         uid: result.user.uid,
         displayName: result.user.displayName,
@@ -34,7 +49,7 @@ function Login() {
           optimismCredit: 10,
           userMetadata: {
             healthScore: 50,
-          }
+          },
         };
 
         await setDoc(userRef, { ...userObj, ...defaultData });
