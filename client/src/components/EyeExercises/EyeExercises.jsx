@@ -34,8 +34,10 @@ function EyeExercises({ onComplete }) {
 
       const updatedUser = {
         ...user,
-        healthScore: newHealthScore,
         optimismCredit: newOptimismCredit,
+        userMetadata: {
+          healthScore: newHealthScore,
+        },
       };
       setUser(updatedUser); // Assuming setUser function exists
       localStorage.setItem("user", JSON.stringify(updatedUser));
