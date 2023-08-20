@@ -34,9 +34,6 @@ React, JavaScript, Vite, Tailwind CSS, Ant Design, Babel, NodeJS, Python, Flask,
 - Circle API key not authorized
 - Lack of documentation for different hardware and support for APIs.
 
-## Accomplishments that we're proud of
-- Be able to build a sophisticated architecture in such a short amount of time
-
 ## Summary 
 OPTimism isn't just about employing the latest technologies; it's about leveraging them for a genuine cause. We've seamlessly merged various features, from chatbots to hardware integrations, under one cohesive platform. Our aim? Clear, healthy vision for all, irrespective of their socio-economic background.
 
