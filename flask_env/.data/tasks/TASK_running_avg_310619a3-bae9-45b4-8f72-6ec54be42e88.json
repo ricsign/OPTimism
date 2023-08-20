@@ -1,0 +1,19 @@
+{
+"id": "TASK_running_avg_310619a3-bae9-45b4-8f72-6ec54be42e88",
+"owner_id": "SCENARIO_arduino_scenario_ecb1aa5d-7889-48c8-aef2-7c7f4706fd9a",
+"parent_ids": [
+"PIPELINE_arduino_22208202-6389-4ea9-bcdd-a0c45f4ec15a"
+],
+"config_id": "running_avg",
+"input_ids": [
+"DATANODE_sensor_readings_a9ae2108-c1f7-4719-ab63-6f542d79d782"
+],
+"function_name": "running_avg",
+"function_module": "__main__",
+"output_ids": [
+"DATANODE_to_send_7cda83fa-07e0-4f64-877d-32142a95c03e"
+],
+"version": "fd977b2c-e6a2-4ed3-924d-e0d171e184e7",
+"skippable": false,
+"properties": {}
+}

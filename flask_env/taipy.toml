@@ -1,0 +1,28 @@
+[TAIPY]
+read_entity_retry = "3:int"
+
+[DATA_NODE.sensor_readings]
+# storage_type = "pickle"
+# scope = "SCENARIO:SCOPE"
+
+[DATA_NODE.to_send]
+# storage_type = "pickle"
+# scope = "SCENARIO:SCOPE"
+
+[TASK.running_avg]
+inputs = [ "sensor_readings:SECTION" ]
+outputs = [ "to_send:SECTION" ]
+function = "__main__.running_avg:function"
+skippable = "False:bool"
+
+[TASK.read_dist]
+inputs = [ ]
+outputs = [ "sensor_readings:SECTION" ]
+function = "__main__.read_dist:function"
+skippable = "False:bool"
+
+[PIPELINE.arduino]
+tasks = [ "read_dist:SECTION", "running_avg:SECTION" ]
+
+[SCENARIO.arduino_scenario]
+pipelines = [ "arduino:SECTION" ]

@@ -1,0 +1,14 @@
+{
+"id": "SCENARIO_arduino_scenario_ecb1aa5d-7889-48c8-aef2-7c7f4706fd9a",
+"config_id": "arduino_scenario",
+"pipelines": [
+"PIPELINE_arduino_22208202-6389-4ea9-bcdd-a0c45f4ec15a"
+],
+"properties": {},
+"creation_date": "2023-08-19T18:09:50.010903",
+"primary_scenario": false,
+"subscribers": [],
+"tags": [],
+"version": "fd977b2c-e6a2-4ed3-924d-e0d171e184e7",
+"cycle": null
+}
