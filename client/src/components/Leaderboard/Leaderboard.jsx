@@ -75,11 +75,11 @@ const Leaderboard = () => {
         return null;
       },
       align: "center",
-    },    
+    },
   ];
 
   return (
-    <div className="p-16 bg-gradient-to-br from-[#D1C4E9] to-[#BBDEFB] min-h-screen">
+    <div className="p-16 bg-gradient-to-br from-[#9575CD] to-[#64B5F6] min-h-screen">
       <div className="bg-white p-10 rounded-xl shadow-lg">
         <div className="flex justify-between">
           <h1 className="text-4xl text-gray-800 font-extrabold mb-10">
