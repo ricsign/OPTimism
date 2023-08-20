@@ -1,0 +1,22 @@
+FROM node:14 as build
+
+# Set the working directory
+WORKDIR /client
+
+COPY frontend/package*.json ./
+
+RUN npm install
+
+COPY frontend/ ./
+
+RUN npm run build
+
+# lightweight Nginx image for serving the built app
+FROM nginx:alpine
+
+# Copy the built app from the build image
+COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
