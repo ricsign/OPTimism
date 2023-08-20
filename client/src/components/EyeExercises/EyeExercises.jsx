@@ -17,8 +17,8 @@ function EyeExercises({ onComplete }) {
     } else {
       const userRef = doc(db, "users", user.uid);
       const userData = await getDoc(userRef);
-      const currentHealthScore = userData.data().healthScore || 50;
-      const currentOptimismCredit = userData.data().optimismCredit || 0;
+      const currentHealthScore = userData?.data()?.userMetadata?.healthScore || 50;
+      const currentOptimismCredit = userData?.data()?.optimismCredit || 0;
 
       let newHealthScore = currentHealthScore + Math.floor(0.1 * (100 - currentHealthScore));
       if (newHealthScore > 100) newHealthScore = 100;
