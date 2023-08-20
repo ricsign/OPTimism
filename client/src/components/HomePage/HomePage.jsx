@@ -1,8 +1,11 @@
 import React from "react";
 import { Parallax } from "react-parallax";
 import "./HomePage.css";
+import { Link, useLocation } from 'react-router-dom';
 
 const HomePage = () => {
+  const location = useLocation();
+
   const useState = React.useState;
   const useEffect = React.useEffect;
 
@@ -19,7 +22,7 @@ const HomePage = () => {
           <p className="website_name">OPTimism</p>
           <div className="menu_links">
             <a href="/analytics" className="link">
-              Analytics
+              My OPTimism
             </a>
             <a href="/leaderboard" className="link">
               Leaderboard
@@ -79,12 +82,19 @@ const HomePage = () => {
           <div className="text">
             <article>
               <p>
-                Guarding Vision, <br /> One Frame at a Time{" "}
+                Guarding Vision, One Frame at a Time <br />
+                Train, Track, Ask, Enhance
               </p>
               <button>
-                <a href="/eye-exercises" className="block w-full">
-                  Start Eye Exercise
-                </a>
+                <Link
+        to={{
+          pathname: '/eye-exercises',
+          state: { prevPath: location.pathname }
+        }}
+        className="block w-full"
+      >
+        Start Eye Exercise
+      </Link>
               </button>
             </article>
           </div>
