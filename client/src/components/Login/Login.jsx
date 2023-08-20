@@ -21,13 +21,13 @@ function Login() {
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
 
-      if (!emailList.includes(result.user.email)) {
-        alert(
-          "This app is only available to beta testers. Please contact the developers for more information."
-        );
-        return;
-      }
-      
+    //   if (!emailList.includes(result.user.email)) {
+    //     alert(
+    //       "This app is only available to beta testers. Please contact the developers for more information."
+    //     );
+    //     return;
+    //   }
+
       const userObj = {
         uid: result.user.uid,
         displayName: result.user.displayName,
