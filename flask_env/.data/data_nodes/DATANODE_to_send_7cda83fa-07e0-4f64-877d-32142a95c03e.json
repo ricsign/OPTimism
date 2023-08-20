@@ -1,0 +1,28 @@
+{
+"id": "DATANODE_to_send_7cda83fa-07e0-4f64-877d-32142a95c03e",
+"config_id": "to_send",
+"scope": "<Scope.SCENARIO: 2>",
+"storage_type": "pickle",
+"name": null,
+"owner_id": "SCENARIO_arduino_scenario_ecb1aa5d-7889-48c8-aef2-7c7f4706fd9a",
+"parent_ids": [
+"TASK_running_avg_310619a3-bae9-45b4-8f72-6ec54be42e88"
+],
+"last_edit_date": "2023-08-19T18:09:50.035289",
+"edits": [
+{
+"job_id": "JOB_running_avg_5d345a38-5f5b-44dd-bb43-fc3e55651399",
+"timestamp": {
+"__type__": "Datetime",
+"__value__": "2023-08-19T18:09:50.035289"
+}
+}
+],
+"version": "fd977b2c-e6a2-4ed3-924d-e0d171e184e7",
+"validity_days": null,
+"validity_seconds": null,
+"edit_in_progress": false,
+"data_node_properties": {
+"is_generated": true
+}
+}

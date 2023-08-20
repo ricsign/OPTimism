@@ -1,0 +1,26 @@
+[TAIPY]
+read_entity_retry = "3:int"
+
+[DATA_NODE.sensor_readings]
+
+[DATA_NODE.to_send]
+
+[TASK.read_dist]
+function = "__main__.read_dist:function"
+inputs = []
+outputs = [ "sensor_readings:SECTION",]
+skippable = "False:bool"
+
+[TASK.running_avg]
+function = "__main__.running_avg:function"
+inputs = [ "sensor_readings:SECTION",]
+outputs = [ "to_send:SECTION",]
+skippable = "False:bool"
+
+[PIPELINE.my_pipeline]
+tasks = [ "read_dist:SECTION", "running_avg:SECTION",]
+
+[SCENARIO.my_scenario]
+pipelines = [ "my_pipeline:SECTION",]
+
+[SCENARIO.my_scenario.comparators]
