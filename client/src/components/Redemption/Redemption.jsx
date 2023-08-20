@@ -76,7 +76,7 @@ const Redemption = () => {
       localStorage.setItem("user", JSON.stringify(updatedUser));
 
       setVisible(false);
-      message.success("Congratulations on your redemption!");
+      message.success("Congratulations on your redemption! Your product will be delivered to you shortly. Please check your email for more details.");
     } catch (error) {
       message.error("Error redeeming product.");
     }
