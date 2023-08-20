@@ -43,8 +43,8 @@ const Analytics = () => {
   }, []);
 
   return (
-    <div className="p-16 bg-gradient-to-br from-[#D1C4E9] to-[#BBDEFB] min-h-screen">
-      <div className="bg-white p-10 rounded-xl shadow-2xl max-w-5xl mx-auto">
+    <div className="p-16 bg-gradient-to-br from-[#9575CD] to-[#64B5F6] min-h-screen">
+      <div className="bg-white p-10 rounded-xl shadow-lg">
         <Space size="middle" direction="vertical" className="w-full">
           <div className="flex justify-between items-center">
             <Space size="middle">
