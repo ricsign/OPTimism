@@ -2,6 +2,10 @@
 <b>Richard, Linda, Edmond, Polly</b> <br>
 
 
+
+<img width="955" alt="image" src="https://github.com/ricsign/OPTimism/assets/61102300/da20f6cc-3646-43ff-9efe-95243837053e">
+
+
 ## Overview
 According to the WHO, at least 2.2 billion people worldwide have a vision impairment or blindness. Out of these, an estimated 1 billion cases could have been prevented or have yet to be addressed. This underscores the vast number of people who lack access to necessary eye care services. Even as developers, our screens have been both our canvas and our cage. We're intimately familiar with the strain they exert on our eyes, a plight shared by millions globally. 
 
