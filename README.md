@@ -25,7 +25,7 @@ The very genesis of OPTimism is rooted in empathy. Many in underserved communiti
 
 **Gamified Redemption & Leaderboard System:** Users are not just passive recipients but active participants. They can earn optimism credits, leading to a gamified experience where they can redeem valuable eye care products. This not only incentivizes regular engagement but also underscores the importance of proactive vision care. The donation system using Circle allows users to make the vision care product possible. 
 
-##Technical Process
+## Technical Process
 Bridging the gap between the technical and the tangible was our biggest challenge. We leaned on technologies such as React, Google Cloud, Flask, Taipy, and more to build a robust frontend and backend, containerized using Docker and Kubernetes and deployed on Netlify. Arduino's integration added a layer of real-world interaction, allowing users to receive physical feedback. The vision care chatbot was a product of countless hours spent on refining algorithms to ensure accuracy and reliability.
 
 ## Tech Stack
