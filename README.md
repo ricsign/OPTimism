@@ -1,4 +1,4 @@
-[![# OPTimism - <sub><sup>HT6 Submission - 36h Hackathon</sup></sub>](https://devpost.com/software/optimism)]
+# [OPTimism - HT6 Submission - 36h Hackathon](https://devpost.com/software/optimism)
 
 <b>Richard, Linda, Edmond, Polly</b> <br>
 
