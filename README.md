@@ -1,5 +1,5 @@
 # [OPTimism - HT6 Submission - 36h Hackathon](https://devpost.com/software/optimism)
-
+### Best Hardware Hack 
 <b>Richard, Linda, Edmond, Polly</b> <br>
 
 
